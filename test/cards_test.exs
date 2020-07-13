@@ -25,8 +25,10 @@ defmodule CardsTest do
     assert length(hand) == 10
   end
 
-  test "Should return a hand which matches the given hand_size" do
-    hand = Cards.create_hand(10)
+  test "Should return a hand which matches the given hand_size with valid cards" do
+    hand = Cards.create_hand(5)
+    assert is_list(hand)
     assert length(hand) == 5
+    assert Enum.map(hand, &String.valid?/1)
   end
 end
