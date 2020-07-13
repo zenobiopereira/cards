@@ -19,7 +19,16 @@ defmodule CardsTest do
     assert Cards.contains?(@deck, "Queen of Diamonds") == false
   end
 
-  test "Should return a amount of cards from the top of the deck" do
-    assert Cards.deal(@deck, 10) == Enum.split(@deck, 10) |> elem(0)
+  test "Should return a given amount of cards from a given deck"
+    do
+    {hand, _deck} = Cards.deal(@deck, 10)
+    assert length(hand) == 10
+  end
+
+  test "Should return a hand which matches the given hand_size with valid cards" do
+    hand = Cards.create_hand(5)
+    assert is_list(hand)
+    assert length(hand) == 5
+    assert Enum.map(hand, &String.valid?/1)
   end
 end
