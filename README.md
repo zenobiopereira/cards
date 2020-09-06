@@ -1,6 +1,8 @@
+### - [Documentation](https://hexdocs.pm/cards.)
+
 # Cards
 
-**TODO: Add description**
+- _Basic module with some functions to handle a deck of card in Elixir._
 
 ## Installation
 
